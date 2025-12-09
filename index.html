@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EVM 合约调用工具</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="app-container">
+        <header class="app-header">
+            <h1>EVM 合约调用工具</h1>
+        </header>
+
+        <div class="main-content">
+            <div class="left-panel">
+                <div class="connection-section">
+                    <h2>连接钱包 (MetaMask)</h2>
+                    <div class="status-indicator">
+                        <span class="status-dot" id="connectionStatus"></span>
+                        <span id="connectionStatusText">未连接</span>
+                    </div>
+                    <button id="connectWallet" class="primary-btn">连接 MetaMask</button>
+                </div>
+
+                <div class="contract-section">
+                    <h2>合约地址</h2>
+                    <div class="address-input-container">
+                        <input type="text" id="contractAddress" placeholder="0x...">
+                        <button id="copyAddressBtn" class="icon-btn">复制</button>
+                    </div>
+                </div>
+
+                <div class="abi-section">
+                    <h2>ABI</h2>
+                    <textarea id="abiInput" placeholder="粘贴合约ABI..."></textarea>
+                    <div class="abi-controls">
+                        <button id="saveAbiBtn" class="secondary-btn">保存ABI</button>
+                        <div class="abi-select-container">
+                            <select id="savedAbis">
+                                <option value="">-- 选择已保存的ABI --</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="right-panel">
+                <div class="function-section">
+                    <h2>合约方法</h2>
+                    <div class="function-select-container">
+                        <select id="contractFunctions">
+                            <option value="">-- 选择方法 --</option>
+                        </select>
+                    </div>
+                    
+                    <div id="functionParams" class="function-params">
+                        <!-- 函数参数将在这里动态生成 -->
+                    </div>
+                    
+                    <div class="function-buttons">
+                        <button id="callFunction" class="primary-btn">调用</button>
+                    </div>
+                    
+                    <div class="function-result">
+                        <h3>结果</h3>
+                        <div id="functionOutput" class="output-area"></div>
+                    </div>
+                </div>
+
+                <div class="history-section">
+                    <h2>使用历史</h2>
+                    <div class="history-list" id="transactionHistory">
+                        <!-- 交易历史将在这里动态生成 -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="libs/ethers.min.js"></script>
+    <script type="module" src="js/main.js"></script>
+</body>
+</html>
